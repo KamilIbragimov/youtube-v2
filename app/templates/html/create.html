@@ -1,0 +1,29 @@
+{% extends 'html/base.html' %}
+{% block title %}Nuovo Canale o Video{% endblock %}
+{% block content %}
+    {% if canale %}
+        <h2>Aggiungi Video a {{ canale.nome }}</h2>
+        <form method="post">
+            <label>Titolo:</label><br>
+            <input type="text" name="titolo"><br>
+            <label>Durata (secondi):</label><br>
+            <input type="number" name="durata"><br>
+            <label>Immagine (URL o nome file):</label><br>
+            <input type="text" name="immagine"><br>
+            <input type="submit" value="Aggiungi Video">
+        </form>
+        <a href="/canale/{{ canale.id }}/video">Torna ai video</a>
+    {% else %}
+        <h2>Crea un nuovo canale</h2>
+        <form method="post">
+            <label>Nome:</label><br>
+            <input type="text" name="nome"><br>
+            <label>Numero Iscritti:</label><br>
+            <input type="number" name="numero_iscritti"><br>
+            <label>Categoria:</label><br>
+            <input type="text" name="categoria"><br>
+            <input type="submit" value="Crea Canale">
+        </form>
+        <a href="/">Torna alla lista canali</a>
+    {% endif %}
+{% endblock %}

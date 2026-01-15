@@ -1,0 +1,14 @@
+{% extends 'html/base.html' %}
+{% block title %}Video del Canale{% endblock %}
+{% block content %}
+    <h2>Video di {{ canale.nome }}</h2>
+    {% for video in video_list %}
+        <div>
+            <h3>{{ video.titolo }}</h3>
+            <p>Durata: {{ video.durata }} secondi</p>
+            <img src="{{ video.immagine }}" alt="Immagine video" width="200">
+        </div>
+    {% endfor %}
+    <a href="/canale/{{ canale.id }}/video/nuovo">Aggiungi nuovo video</a><br>
+    <a href="/">Torna ai canali</a>
+{% endblock %}

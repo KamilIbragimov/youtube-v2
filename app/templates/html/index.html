@@ -1,0 +1,14 @@
+{% extends 'html/base.html' %}
+{% block title %}Lista Canali{% endblock %}
+{% block content %}
+    <h2>Canali</h2>
+    {% for canale in canali %}
+        <div>
+            <h3>{{ canale.nome }}</h3>
+            <p>Iscritti: {{ canale.numero_iscritti }}</p>
+            <p>Categoria: {{ canale.categoria }}</p>
+            <a href="/canale/{{ canale.id }}/video">Vedi Video</a>
+        </div>
+    {% endfor %}
+    <a href="/canale/nuovo">Crea nuovo canale</a>
+{% endblock %}
